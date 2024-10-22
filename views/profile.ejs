@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+<form action = '/user/profilechange/<%= user._id %>' method = 'post' enctype="multipart/form-data">
+  <div class="container mt-3">
+    <h1 class = 'mt-3'>Profile Details</h1>
+    <br>
+    <div class="mb-3">
+      
+      <label for="formFile" class="form-label">Profile Image</label>
+      <input class="form-control" name = 'profileImageUrl' type="file" id="formFile">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputname" class="form-label">Full name</label>
+    <input type="text" name = 'fullname' class="form-control" id = 'exampleInputname'  placeholder = "<%= user.fullname %>" >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" name = 'email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder = "<%= user.email  %>">
+  </div>
+ 
+  <p>Do the change as per requirement else leave it is as it is. You will be able to see the change after logging out and then again logging in</p>
+  <div class="mb-3">
+    <button type = 'submit' class="btn btn-primary">Update</button>
+  </div>
+</div>
+</form>
+
+    <%- include('./partials/scripts.ejs') %>
+    
+</body>
+
+</html>

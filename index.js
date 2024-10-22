@@ -10,7 +10,7 @@ const app = express();
 //middleware
 app.use(cookieparser());
 app.use(express.static(path.resolve('./public')))
-mongoose.connect('mongodb://127.0.0.1:27017/bloglify').then(()=>{console.log('connected')});
+mongoose.connect('mongodb://127.0.0.1:27017/blogify').then(()=>{console.log('connected')});
 
 
 const PORT = 8000;
@@ -20,11 +20,11 @@ app.use(express.urlencoded({extended:false}));
 app.use('/user', userRoute);
 app.get('/', setauth,  async (req,res)=>{
     if(!req.user){
-        res.render('signin', {b:true})
+      return res.render('signin', {b:false});
     }
 const blog = await Blog.find({});
     console.log('Ok');
-    res.render('homepage', {
+   res.render('homepage', {
         user:req.user,
         blogs:blog,
     });

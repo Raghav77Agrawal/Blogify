@@ -21,6 +21,7 @@ required:true,
     },
     profileImageUrl:{
         type:String,
+        default:'/uploads/defaultavtar.jpg'
         
     },
     role:{

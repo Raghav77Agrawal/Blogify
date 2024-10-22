@@ -2,7 +2,7 @@
     <!-- Navbar content -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme = 'dark'>
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Bloglify</a>
+          <a class="navbar-brand" href="#">Blogify</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -20,7 +20,9 @@
                  <%= user.fullname%>
                 </a>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/user/profile">Edit Profile</a></li>
                   <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+                  
                 </ul>
               </li>
               <% }else{ %>

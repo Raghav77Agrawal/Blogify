@@ -34,8 +34,7 @@ coverImageUrl:`/uploads/${req.file.filename}`,
 //populate word basically includes information of types also
 Routers.get('/:id', async (req,res)=>{
     const blog = await Blog.findById(req.params.id).populate('createdBy');
-  const comment = await Comment.find({}).populate('createdBy').populate('blogId');
-  console.log(comment);
+  const comment = await Comment.find({blogId:req.params.id}).populate('createdBy');
     res.render('blog', {
         user:req.user,
         myblog:blog,
@@ -46,7 +45,7 @@ Routers.post('/comment/:blogid', async (req,res)=>{
 
  await Comment.create({
 content:req.body.content,
-blogid:req.params.blogid,
+blogId:req.params.blogid,
 createdBy:req.user._id,
 })
 return res.redirect(`/blog/${req.params.blogid}`);

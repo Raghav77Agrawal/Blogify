@@ -4,7 +4,11 @@
 <body>
     <%- include('./partials/nav.ejs') %>
     <div class="container mt-4">
-        <form method = 'post' action = '/user/signup'>
+        <form method = 'post' action = '/user/signup' enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Profile Image</label>
+            <input class="form-control" name = 'profileImageUrl' type="file" id="formFile">
+          </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Full name</label>
               <input type="text" name = 'fullname' class="form-control"  >
